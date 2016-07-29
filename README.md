@@ -12,3 +12,6 @@ Get the % difference in images using PIL's histogram + generate a diff image. Im
 
 ## Resulting diff image
 ![Alt text](/diff_img.jpg "Difference Image")
+
+## Difference percentage output
+`Images differ by 1.86650262467%`
