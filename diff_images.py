@@ -6,7 +6,7 @@
 # only works with images of the same type
 
 from PIL import Image, ImageChops, ImageStat
-import sys, math, operator
+import sys
 
 diff_img_file = 'diff_img.jpg'
 
