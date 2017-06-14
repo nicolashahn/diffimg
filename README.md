@@ -2,7 +2,7 @@
 Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size.
 
 ### Usage
-`python diff_images.py image1 image2`
+`./diff_images.py image1 image2 [-r/--ratio] [-d/--delete] [-f/--filename DIFF_IMG_FILE]`
 
 ## Sample image 1
 ![Alt text](/mario-circle-cs.png "Image 1")
