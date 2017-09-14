@@ -1,6 +1,23 @@
 # python-image-diff
 Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size.
 
+### Formula 
+
+
+
+The difference is defined by the average % difference between each of the channels (R,G,B,A?) at each pair of pixels A<sub>xy</sub>, B<sub>xy</sub> at the same coordinates in each of the two images (why they need to be the same size), averaged over all pairs of pixels. 
+
+For example, compare two 1x1 images _A_ and _B_ (a trivial example, >1 pixels would have another step to find the average of all pixels):
+
+_A_<sub>1,1</sub> = RGB(255,0,0) _(pure red)_
+
+_B_<sub>1,1</sub> = RGB(100,0,0) _(dark red)_
+
+((255-100)/255 + (0/0)/255 + (0/0)/255))/3 = (155/255)/3 = 0.202614379
+
+So these two 1x1 images differ by __20.2614379%__ according to this formula.
+
+
 ### Usage
 `./diff_images.py image1 image2 [-r/--ratio] [-d/--delete] [-f/--filename DIFF_IMG_FILE]`
 
