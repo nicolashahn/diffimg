@@ -62,9 +62,9 @@ def main():
                       args.delete_diff_file, 
                       args.diff_img_file)
     if args.use_ratio:
-        print diff_ratio
+        print(diff_ratio)
     else:
-        print 'Images differ by {}%'.format(diff_ratio*100)
+        print('Images differ by {}%'.format(diff_ratio*100))
     return 0
 
 if __name__ == "__main__":
