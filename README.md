@@ -19,6 +19,16 @@ So these two 1x1 images differ by __20.2614379%__ according to this formula.
 
 
 ### Usage
+
+```
+>>> from diffimg import diff
+>>> diff('mario-circle-cs.png', 'mario-circle-node.png')
+0.01866502624671916
+```
+The `diff` function returns a raw ratio instead of a % by default.
+
+### As command line tool
+
 `python diffimg image1 image2 [-r/--ratio] [-d/--delete] [-f/--filename DIFF_IMG_FILE]`
 
 `--ratio` outputs a number between 0 and 1 instead of the default `Images differ by X%`.
