@@ -6,8 +6,8 @@ setup(
   description = 'Get the % difference in images + generate a diff image Edit',
   author = 'Nicolas Hahn',
   author_email = 'nicolas@stonespring.org',
-  url = 'https://github.com/nicolashahn/python-image-diff', # use the URL to the github repo
-  download_url = '', # I'll explain this in a second
-  keywords = ['diff', 'difference', 'image'], # arbitrary keywords
+  url = 'https://github.com/nicolashahn/python-image-diff',
+  download_url = 'https://github.com/nicolashahn/python-image-diff/archive/0.1.tar.gz',
+  keywords = ['diff', 'difference', 'image'],
   classifiers = [],
 )
