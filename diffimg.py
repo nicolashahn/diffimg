@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# diff_images.py
-# Nicolas Hahn
 # return the % difference of two given images
 # only works with images of the same file type
 
