@@ -12,6 +12,12 @@ def diff(im1_file,
          im2_file, 
          delete_diff_file=False, 
          diff_img_file=diff_img_file):
+    '''Calculate the difference between two images of the same size
+    by comparing channel values at the pixel level. 
+
+    `delete_diff_file`: removes the diff image after ratio found
+    `diff_img_file`: filename to store diff image
+    '''
     im1 = Image.open(im1_file)
     im2 = Image.open(im2_file)
     diff_img = ImageChops.difference(im1,im2)
