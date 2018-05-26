@@ -62,13 +62,13 @@ _B_<sub>1,1</sub> = RGB(100,0,0) _(dark red)_
 So these two 1x1 images differ by __20.2614379%__ according to this formula.
 
 ## Sample image 1
-![Alt text](/mario-circle-cs.png "Image 1")
+![Alt text](/images/mario-circle-cs.png "Image 1")
 
 ## Sample image 2
-![Alt text](/mario-circle-node.png "Image 2")
+![Alt text](/images/mario-circle-node.png "Image 2")
 
 ## Resulting diff image
-![Alt text](/diff_img.jpg "Difference Image")
+![Alt text](/images/diff_img.jpg "Difference Image")
 
 ## Difference percentage output
 `Images differ by 1.86650262467%`
