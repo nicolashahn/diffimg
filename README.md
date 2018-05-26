@@ -1,4 +1,4 @@
-# python-image-diff
+# diffimg
 Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size.
 
 ### Installation
@@ -12,7 +12,7 @@ Now available from PyPi: `pip install diffimg`
 >>> diff('mario-circle-cs.png', 'mario-circle-node.png')
 0.01866502624671916
 ```
-The `diff` function returns a raw ratio instead of a % by default.
+The [very simple](/diffimg/__init__.py#L11) `diff` function returns a raw ratio instead of a % by default.
 
 ```
 diff(im1_file, 
