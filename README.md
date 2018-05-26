@@ -36,6 +36,17 @@ diff(im1_file,
 
 `--filename` specifies a filename to save the diff image under. Must use a valid extension.
 
+### Test
+
+```
+$ python test.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.048s
+
+OK
+```
+
 ### Formula 
 
 The difference is defined by the average % difference between each of the channels (R,G,B,A?) at each pair of pixels A<sub>xy</sub>, B<sub>xy</sub> at the same coordinates in each of the two images (why they need to be the same size), averaged over all pairs of pixels. 
