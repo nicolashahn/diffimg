@@ -1,4 +1,4 @@
-from __init__ import diff, diff_img_file
+from __init__ import diff, DIFF_IMG_FILE
 import argparse
 import sys
 
@@ -23,7 +23,7 @@ def get_args():
     parser.add_argument('--filename', '-f',
             dest='diff_img_file', 
             type=str,
-            default=diff_img_file,
+            default=DIFF_IMG_FILE,
             help='filename with valid extension to store diff image \
                     (defaults to diff_img.jpg)')
     return parser.parse_args()

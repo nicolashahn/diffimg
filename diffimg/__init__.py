@@ -18,6 +18,7 @@ def diff(im1_file,
     `diff_img_file`: filename to store diff image
     '''
 
+
     # Generate diff image in memory.
     im1 = Image.open(im1_file)
     im2 = Image.open(im2_file)
