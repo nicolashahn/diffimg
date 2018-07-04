@@ -28,7 +28,7 @@ diff(im1_file,
 
 ### As command line tool
 
-`python diffimg image1 image2 [-r/--ratio] [-d/--delete] [-f/--filename DIFF_IMG_FILE]`
+`python -m diffimg image1 image2 [-r/--ratio] [-d/--delete] [-f/--filename DIFF_IMG_FILE]`
 
 `--ratio` outputs a number between 0 and 1 instead of the default `Images differ by X%`.
 
