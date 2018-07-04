@@ -1,14 +1,16 @@
+#!/usr/bin/env python
+
 import os
 import unittest
 from diffimg import diff
 
 
 IMAGES_DIR = 'images'
-IMG_PATH = lambda f: os.path.join(IMAGES_DIR, f)
+mk_img_path = lambda f: os.path.join(IMAGES_DIR, f)
 
-IMG1 = IMG_PATH('mario-circle-cs.png')
-IMG2 = IMG_PATH('mario-circle-node.png')
-TEST_FILE = IMG_PATH('test-diff.jpg')
+IMG1 = mk_img_path('mario-circle-cs.png')
+IMG2 = mk_img_path('mario-circle-node.png')
+TEST_FILE = mk_img_path('test-diff.jpg')
 
 
 class TestAll(unittest.TestCase):
