@@ -6,10 +6,16 @@ from diffimg import diff
 
 
 IMAGES_DIR = 'images'
-mk_img_path = lambda f: os.path.join(IMAGES_DIR, f)
+
+
+def mk_img_path(f):
+    return os.path.join(IMAGES_DIR, f)
+
 
 IMG1 = mk_img_path('mario-circle-cs.png')
 IMG2 = mk_img_path('mario-circle-node.png')
+IMG3 = mk_img_path('yandex1.png')  # RGBA
+IMG4 = mk_img_path('yandex2.png')  # RGB
 TEST_FILE = mk_img_path('test-diff.jpg')
 
 
@@ -36,6 +42,10 @@ class TestAll(unittest.TestCase):
              diff_img_file=TEST_FILE)
         self.assertTrue(os.path.exists(TEST_FILE))
         os.remove(TEST_FILE)
+
+    def test_different_modes(self):
+        with self.assertRaises(ValueError):
+            diff(IMG3, IMG4)
 
 
 if __name__ == '__main__':

@@ -1,28 +1,38 @@
 #!/usr/bin/env python
 
-# return the % difference of two given images
-# only works with images of the same file type
+"""
+Return the % difference of two given images.
+Only works with images of the same file type and color channels.
+"""
 
+from __future__ import print_function
 from PIL import Image, ImageChops, ImageStat
 
 DIFF_IMG_FILE = 'diff_img.jpg'
 
-def diff(im1_file, 
-         im2_file, 
-         delete_diff_file=False, 
+
+def diff(im1_file,
+         im2_file,
+         delete_diff_file=False,
          diff_img_file=DIFF_IMG_FILE):
     '''Calculate the difference between two images of the same size
-    by comparing channel values at the pixel level. 
+    by comparing channel values at the pixel level.
 
     `delete_diff_file`: removes the diff image after ratio found
     `diff_img_file`: filename to store diff image
     '''
 
-
-    # Generate diff image in memory.
     im1 = Image.open(im1_file)
     im2 = Image.open(im2_file)
-    diff_img = ImageChops.difference(im1,im2)
+
+    # Ensure we have the same color channels (RGBA vs RGB)
+    if im1.mode != im2.mode:
+        raise ValueError(("Differing color modes:\n  {}: {}\n  {}: {}\n"
+                         "Ensure image color modes are the same."
+                        ).format(im1_file, im1.mode, im2_file, im2.mode))
+
+    # Generate diff image in memory.
+    diff_img = ImageChops.difference(im1, im2)
 
     if not delete_diff_file:
         diff_img.convert('RGB').save(diff_img_file)

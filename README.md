@@ -1,5 +1,5 @@
 # diffimg
-Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size.
+Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size and have the same color channels (for example, RGB vs RGBA).
 
 ### Installation
 
