@@ -1,6 +1,9 @@
 # diffimg
 Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size and have the same color channels (for example, RGB vs RGBA).
 
+[![PyPI version](https://badge.fury.io/py/diffimg.svg)](https://badge.fury.io/py/diffimg)
+
+
 ### Installation
 
 Now available from PyPi: `pip install diffimg`
