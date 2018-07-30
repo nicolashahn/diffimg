@@ -24,7 +24,7 @@ diff(im1_file,
 
 `delete_diff_file`: a fill showing the differing areas of the two images is generated in order to measure the diff ratio. Setting this to `True` removes it after calculating the ratio.
 
-`diff_img_file`: filename for the diff image file. Defaults to 'diff_img.jpg' (regardless of inputed file's types)
+`diff_img_file`: filename for the diff image file. Defaults to `diff_img.jpg` (regardless of inputed file's types). Setting this to a filename with the extension `.png` can be used to capture alpha channel difference as well.
 
 ### As command line tool
 

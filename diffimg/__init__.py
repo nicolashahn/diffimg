@@ -28,14 +28,20 @@ def diff(im1_file,
     # Ensure we have the same color channels (RGBA vs RGB)
     if im1.mode != im2.mode:
         raise ValueError(("Differing color modes:\n  {}: {}\n  {}: {}\n"
-                         "Ensure image color modes are the same."
-                        ).format(im1_file, im1.mode, im2_file, im2.mode))
+                          "Ensure image color modes are the same."
+                          ).format(im1_file, im1.mode, im2_file, im2.mode))
 
     # Generate diff image in memory.
     diff_img = ImageChops.difference(im1, im2)
 
     if not delete_diff_file:
-        diff_img.convert('RGB').save(diff_img_file)
+        extension = diff_img_file.split('.')[-1]
+        if extension in ('jpg', 'jpeg'):
+            # For some reason, save() thinks "jpg" is invalid
+            # This doesn't affect the image's saved filename
+            extension = 'jpeg'
+            diff_img = diff_img.convert('RGB')
+        diff_img.save(diff_img_file, extension)
 
     # Calculate difference as a ratio.
     stat = ImageStat.Stat(diff_img)
