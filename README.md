@@ -15,7 +15,7 @@ Now available from PyPi: `pip install diffimg`
 >>> diff('mario-circle-cs.png', 'mario-circle-node.png')
 0.007319618135968298
 ```
-The [very simple](/diffimg/__init__.py#L10) `diff` function returns a raw ratio instead of a % by default.
+The [very simple](/diffimg/__init__.py#L14) `diff` function returns a raw ratio instead of a % by default.
 
 ```
 diff(im1_file, 
