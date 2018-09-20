@@ -13,7 +13,7 @@ Now available from PyPi: `pip install diffimg`
 ```
 >>> from diffimg import diff
 >>> diff('mario-circle-cs.png', 'mario-circle-node.png')
-0.01866502624671916
+0.007319618135968298
 ```
 The [very simple](/diffimg/__init__.py#L10) `diff` function returns a raw ratio instead of a % by default.
 
@@ -21,13 +21,13 @@ The [very simple](/diffimg/__init__.py#L10) `diff` function returns a raw ratio 
 diff(im1_file, 
      im2_file, 
      delete_diff_file=False, 
-     diff_img_file='diff_img.jpg')
+     diff_img_file=DIFF_IMG_FILE)
 ```
 `im1_file, im2_file`: filenames of images to diff.
 
 `delete_diff_file`: a fill showing the differing areas of the two images is generated in order to measure the diff ratio. Setting this to `True` removes it after calculating the ratio.
 
-`diff_img_file`: filename for the diff image file. Defaults to `diff_img.jpg` (regardless of inputed file's types). Setting this to a filename with the extension `.png` can be used to capture alpha channel difference as well.
+`diff_img_file`: filename for the diff image file. Defaults to `diff_img.png` (regardless of inputed file's types).
 
 ### As command line tool
 
@@ -39,13 +39,13 @@ diff(im1_file,
 
 `--filename` specifies a filename to save the diff image under. Must use a valid extension.
 
-### Test
+### Tests
 
 ```
-$ python test.py
-.
+$ ./test.py
+......
 ----------------------------------------------------------------------
-Ran 1 test in 0.048s
+Ran 6 tests in 0.320s
 
 OK
 ```
@@ -71,7 +71,7 @@ So these two 1x1 images differ by __20.2614379%__ according to this formula.
 ![Alt text](/images/mario-circle-node.png "Image 2")
 
 ## Resulting diff image
-![Alt text](/images/diff_img.jpg "Difference Image")
+![Alt text](/images/diff_img.png "Difference Image")
 
 ## Difference percentage output
-`Images differ by 1.86650262467%`
+`Images differ by 0.731961813597%`
