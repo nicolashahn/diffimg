@@ -47,7 +47,7 @@ def diff(im1_file,
     stat = ImageStat.Stat(diff_img)
     # Can be [r,g,b] or [r,g,b,a].
     sum_channel_values = sum(stat.mean)
-    max_all_channels = len(stat.mean) * 100
-    diff_ratio = sum_channel_values/max_all_channels
+    max_all_channels = len(stat.mean) * 255
+    diff_ratio = sum_channel_values / max_all_channels
 
     return diff_ratio

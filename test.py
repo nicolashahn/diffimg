@@ -3,7 +3,7 @@
 import os
 import unittest
 from diffimg import diff
-
+import PIL
 
 IMAGES_DIR = 'images'
 
@@ -18,15 +18,23 @@ IMG3 = mk_img_path('yandex1.png')  # RGBA
 IMG4 = mk_img_path('yandex2.png')  # RGB
 TEST_JPG_OUT = mk_img_path('test-diff.jpg')
 TEST_PNG_OUT = mk_img_path('test-diff.png')
+WHITE_IMG = mk_img_path('white.png')
+BLACK_IMG = mk_img_path('black.png')
 
 
 class TestAll(unittest.TestCase):
 
-    def test_ratio(self):
+    def test_mario_ratio(self):
         ratio = diff(IMG1,
                      IMG2,
                      delete_diff_file=True)
-        self.assertEqual(ratio, 0.01866502624671916)
+        self.assertEqual(ratio, 0.007319618135968298)
+
+    def test_bw_image_ratio(self):
+        ratio = diff(BLACK_IMG,
+                     WHITE_IMG,
+                     delete_diff_file=True)
+        self.assertEqual(ratio, 1.0)
 
     def test_delete_diff_img(self):
         if os.path.exists(TEST_JPG_OUT):
