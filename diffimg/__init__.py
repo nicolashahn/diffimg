@@ -8,7 +8,7 @@ Only works with images of the same file type and color channels.
 from __future__ import print_function
 from PIL import Image, ImageChops, ImageStat
 
-DIFF_IMG_FILE = 'diff_img.jpg'
+DIFF_IMG_FILE = 'diff_img.png'
 
 
 def diff(im1_file,
