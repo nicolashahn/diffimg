@@ -1,7 +1,7 @@
 from __future__ import print_function
 import argparse
 import sys
-from __init__ import diff, DIFF_IMG_FILE
+from . import diff, DIFF_IMG_FILE
 
 
 def get_args():
