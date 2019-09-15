@@ -37,13 +37,25 @@ def get_args():
         help="filename with valid extension to store diff image \
                 (defaults to diff_img.jpg)",
     )
+    parser.add_argument(
+        "--ignore-alpha",
+        "-ia",
+        dest="ignore_alpha",
+        action="store_true",
+        help="ignore the alpha channel for ratio calculation \
+                and diff img creation",
+    )
     return parser.parse_args()
 
 
 def main():
     args = get_args()
     diff_ratio = diff(
-        args.image1, args.image2, args.delete_diff_file, args.diff_img_file
+        args.image1,
+        args.image2,
+        delete_diff_file=args.delete_diff_file,
+        diff_img_file=args.diff_img_file,
+        ignore_alpha=args.ignore_alpha,
     )
     if args.use_ratio:
         print(diff_ratio)

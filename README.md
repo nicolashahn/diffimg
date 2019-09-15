@@ -21,13 +21,16 @@ The [very simple](/diffimg/__init__.py#L14) `diff` function returns a raw ratio 
 diff(im1_file, 
      im2_file, 
      delete_diff_file=False, 
-     diff_img_file=DIFF_IMG_FILE)
+     diff_img_file=DIFF_IMG_FILE
+     ignore_alpha=False)
 ```
 `im1_file, im2_file`: filenames of images to diff.
 
 `delete_diff_file`: a fill showing the differing areas of the two images is generated in order to measure the diff ratio. Setting this to `True` removes it after calculating the ratio.
 
 `diff_img_file`: filename for the diff image file. Defaults to `diff_img.png` (regardless of inputed file's types).
+
+`ignore_alpha`: ignore the alpha channel for the ratio and if applicable, sets the alpha of the diff image to fully opaque.
 
 ### As command line tool
 
@@ -38,6 +41,8 @@ diff(im1_file,
 `--delete` removes the diff file after retrieving ratio/percentage.
 
 `--filename` specifies a filename to save the diff image under. Must use a valid extension.
+
+`--ignore-alpha` ignore the alpha channel.
 
 ### Tests
 

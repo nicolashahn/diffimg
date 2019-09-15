@@ -9,12 +9,17 @@ from PIL import Image, ImageChops, ImageStat
 DIFF_IMG_FILE = "diff_img.png"
 
 
-def diff(im1_file, im2_file, delete_diff_file=False, diff_img_file=None):
-    """Calculate the difference between two images of the same size
+def diff(
+    im1_file, im2_file, delete_diff_file=False, diff_img_file=None, ignore_alpha=False
+):
+    """
+    Calculate the difference between two images of the same size
     by comparing channel values at the pixel level.
 
     `delete_diff_file`: removes the diff image after ratio found
     `diff_img_file`: filename to store diff image
+    `ignore_alpha`: ignore the alpha channel for ratio calculation, and set the diff
+        image's alpha to fully opaque
     """
     if not diff_img_file:
         diff_img_file = DIFF_IMG_FILE
@@ -34,6 +39,9 @@ def diff(im1_file, im2_file, delete_diff_file=False, diff_img_file=None):
     # Generate diff image in memory.
     diff_img = ImageChops.difference(im1, im2)
 
+    if ignore_alpha:
+        diff_img.putalpha(256)
+
     if not delete_diff_file:
         if "." not in diff_img_file:
             extension = "png"
@@ -48,9 +56,11 @@ def diff(im1_file, im2_file, delete_diff_file=False, diff_img_file=None):
 
     # Calculate difference as a ratio.
     stat = ImageStat.Stat(diff_img)
-    # Can be [r,g,b] or [r,g,b,a].
-    sum_channel_values = sum(stat.mean)
-    max_all_channels = len(stat.mean) * 255
+    # stat.mean can be [r,g,b] or [r,g,b,a].
+    removed_channels = 1 if ignore_alpha and len(stat.mean) == 4 else 0
+    num_channels = len(stat.mean) - removed_channels
+    sum_channel_values = sum(stat.mean[:num_channels])
+    max_all_channels = num_channels * 255
     diff_ratio = sum_channel_values / max_all_channels
 
     return diff_ratio
