@@ -13,8 +13,9 @@ def diff(
     im1_file, im2_file, delete_diff_file=False, diff_img_file=None, ignore_alpha=False
 ):
     """
-    Calculate the difference between two images of the same size
-    by comparing channel values at the pixel level.
+    Calculate the difference between two images by comparing channel values at the pixel
+    level. If the images are different sizes, the second will be resized to match the
+    first.
 
     `delete_diff_file`: removes the diff image after ratio found
     `diff_img_file`: filename to store diff image
@@ -35,6 +36,9 @@ def diff(
                 "Ensure image color modes are the same."
             ).format(im1_file, im1.mode, im2_file, im2.mode)
         )
+
+    # Coerce 2nd dimensions to same as 1st
+    im2 = im2.resize((im1.width, im1.height))
 
     # Generate diff image in memory.
     diff_img = ImageChops.difference(im1, im2)

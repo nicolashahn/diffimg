@@ -74,6 +74,11 @@ class TestAll(unittest.TestCase):
         im = PIL.Image.open(TEST_PNG_OUT)
         self.assertEqual(im.getextrema()[3], (255, 255))
 
+    def test_different_image_sizes(self):
+        ratio = diff(IMG1, IMG3, delete_diff_file=True, ignore_alpha=True)
+        # this is the ratio for the (manually inspected) resulting diff image
+        self.assertEqual(ratio, 0.3503192421617232)
+
 
 if __name__ == "__main__":
     unittest.main()

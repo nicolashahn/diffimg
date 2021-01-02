@@ -1,5 +1,7 @@
 # diffimg
-Get the % difference in images using PIL's histogram + generate a diff image. Images should be the same size and have the same color channels (for example, RGB vs RGBA).
+Get the % difference in images using PIL's histogram + generate a diff image. Images
+should have the same color channels (for example, RGB vs RGBA). If the image dimensions
+differ, the 2nd image will be resized to match the first before calculating the diff.
 
 [![PyPI version](https://badge.fury.io/py/diffimg.svg)](https://badge.fury.io/py/diffimg)
 
@@ -15,7 +17,8 @@ Now available from PyPi: `pip install diffimg`
 >>> diff('mario-circle-cs.png', 'mario-circle-node.png')
 0.007319618135968298
 ```
-The [very simple](/diffimg/diff.py#L12) `diff` function returns a raw ratio instead of a % by default.
+The [very simple](/diffimg/diff.py#L12) `diff` function returns a raw ratio instead of a
+% by default.
 
 ```
 diff(im1_file, 
@@ -26,11 +29,15 @@ diff(im1_file,
 ```
 `im1_file, im2_file`: filenames of images to diff.
 
-`delete_diff_file`: a fill showing the differing areas of the two images is generated in order to measure the diff ratio. Setting this to `True` removes it after calculating the ratio.
+`delete_diff_file`: a file showing the differing areas of the two images is generated in
+order to measure the diff ratio with the same dimensions as the first image. Setting
+this to `True` removes it after calculating the ratio.
 
-`diff_img_file`: filename for the diff image file. Defaults to `diff_img.png` (regardless of inputed file's types).
+`diff_img_file`: filename for the diff image file. Defaults to `diff_img.png`
+(regardless of inputed file's types).
 
-`ignore_alpha`: ignore the alpha channel for the ratio and if applicable, sets the alpha of the diff image to fully opaque.
+`ignore_alpha`: ignore the alpha channel for the ratio and if applicable, sets the alpha
+of the diff image to fully opaque.
 
 ### As command line tool
 
@@ -57,9 +64,13 @@ OK
 
 ### Formula 
 
-The difference is defined by the average % difference between each of the channels (R,G,B,A?) at each pair of pixels A<sub>xy</sub>, B<sub>xy</sub> at the same coordinates in each of the two images (why they need to be the same size), averaged over all pairs of pixels. 
+The difference is defined by the average % difference between each of the channels
+(R,G,B,A?) at each pair of pixels A<sub>xy</sub>, B<sub>xy</sub> at the same coordinates
+in each of the two images (why they need to be the same size), averaged over all pairs
+of pixels. 
 
-For example, compare two 1x1 images _A_ and _B_ (a trivial example, >1 pixels would have another step to find the average of all pixels):
+For example, compare two 1x1 images _A_ and _B_ (a trivial example, >1 pixels would have
+another step to find the average of all pixels):
 
 _A_<sub>1,1</sub> = RGB(255,0,0) _(pure red)_
 

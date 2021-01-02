@@ -2,7 +2,7 @@ try:
     from setuptools import setup
 except ImportError:
     from distutils.core import setup
-VERSION = "0.2.3"
+VERSION = "0.3.0"
 setup(
     name="diffimg",
     packages=["diffimg"],  # this must be the same as the name above
