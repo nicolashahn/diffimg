@@ -5,7 +5,7 @@ import unittest
 
 import PIL
 
-from diff import diff
+from diffimg.diff import diff
 
 IMAGES_DIR = "images"
 
